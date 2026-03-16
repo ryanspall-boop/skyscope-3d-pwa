@@ -1,0 +1,13 @@
+{
+  "name": "SkyScope 3D Flight Tracker",
+  "short_name": "SkyScope 3D",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "description": "A static installable 3D flight tracker PWA with live browser fetch, airport search, trails, and airline filters.",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

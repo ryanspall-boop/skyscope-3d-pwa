@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#0b1220" />
+  <title>SkyScope 3D</title>
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="./icons/icon-192.png" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cesium@1.114/Build/Cesium/Widgets/widgets.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <div id="app">
+    <div id="cesiumContainer"></div>
+
+    <header class="topbar glass">
+      <div class="brand">
+        <div class="brand-mark">✈︎</div>
+        <div>
+          <h1>SkyScope 3D</h1>
+          <p id="statusText">Starting live globe…</p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button id="installBtn" class="chip hidden">Install</button>
+        <button id="locateBtn" class="chip">My area</button>
+        <button id="refreshBtn" class="chip primary">Refresh</button>
+      </div>
+    </header>
+
+    <section class="search-card glass">
+      <div class="field-row">
+        <label>
+          <span>Airport or city</span>
+          <input id="airportSearch" type="search" placeholder="JFK, Heathrow, Tokyo…" autocomplete="off" />
+        </label>
+        <button id="goAirportBtn" class="chip primary">Go</button>
+      </div>
+      <div class="field-row compact">
+        <label>
+          <span>Flight / callsign</span>
+          <input id="flightSearch" type="search" placeholder="DAL123" />
+        </label>
+        <label>
+          <span>Airline</span>
+          <select id="airlineFilter"></select>
+        </label>
+      </div>
+      <div class="preset-row" id="presetRow"></div>
+    </section>
+
+    <section class="bottom-sheet glass" id="sheet">
+      <div class="grabber"></div>
+      <div class="sheet-grid">
+        <div class="stat">
+          <span class="label">Mode</span>
+          <strong id="modePill">Live</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Flights</span>
+          <strong id="flightCount">0</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Updated</span>
+          <strong id="updatedAt">—</strong>
+        </div>
+        <div class="stat">
+          <span class="label">Trails</span>
+          <strong>On</strong>
+        </div>
+      </div>
+      <div class="toggle-row">
+        <button id="toggleAutoBtn" class="chip">Auto refresh: On</button>
+        <button id="toggleTrailsBtn" class="chip">Trails: On</button>
+        <button id="toggleLabelsBtn" class="chip">Labels: Off</button>
+      </div>
+      <div id="messageBar" class="message hidden"></div>
+      <article id="flightCard" class="flight-card hidden">
+        <div class="card-head">
+          <div>
+            <h2 id="cardTitle">Select a flight</h2>
+            <p id="cardSubtitle">Tap an aircraft on the globe</p>
+          </div>
+          <button id="closeCardBtn" class="chip">Close</button>
+        </div>
+        <dl class="details-grid" id="detailsGrid"></dl>
+      </article>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/cesium@1.114/Build/Cesium/Cesium.js"></script>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
